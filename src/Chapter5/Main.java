@@ -32,21 +32,16 @@ public class Main {
             }
 
             if(i>j){
-                temp = data[j];
-                data[j]  = data[key];
-                data[key] = temp;
+               temp = data[j];
+               data[j]  = data[key];
+               data[key] = temp;
             }else{
                 temp = data[i];
                 data[i] = data[j];
                 data[j] = temp;
             }
         }
-
         quickSort(data,start,j-1);
         quickSort(data,j+1,end);
-
-
-
-
     }
 }
