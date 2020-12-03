@@ -13,7 +13,7 @@ public class K번째수 {
     }
 
     public static int[] solution(int[] array, int[][] commands) {
-        int[] answers = new int[3];
+        int[] answers = new int[commands.length];
 
         int index = 0;
 
