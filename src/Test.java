@@ -1,32 +1,30 @@
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Test {
     public static void main(String[] args) {
-        //비트 연산자 코딩
-       int start = Integer.MAX_VALUE;
-       int end = Integer.MAX_VALUE;
-
-       int mid = start + (end-start)/2;
-       System.out.println(mid);
-
-       int mid1 = (start + end) >>> 1;
-       System.out.println(mid1);
 
 
-       int[] a = new int[7];
-       a[0] = 5;
-        a[1] = 2;
-        a[2] = 4;
-        a[3] = 1;
-        a[4] = 2;
-        a[5] = 4;
-        a[6] = 5;
+    }
 
-               int result= 0;
-               for(int number : a){
-                   result ^= number;
-               }
+    public static int[] solution(int[] arr){
+        Set<Integer> set = new LinkedHashSet<>();
+        for(int i=0;i<arr.length;i++){
+            set.add(arr[i]);
+        }
 
-        System.out.println(result);
+        int[] answer = new int[set.size()];
 
+        int count = 0;
+        Iterator<Integer> iterator = set.iterator();
+
+        while (iterator.hasNext()){
+            answer[count] = iterator.next();
+            count++;
+        }
+
+        return answer;
     }
 
 }
