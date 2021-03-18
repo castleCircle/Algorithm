@@ -1,19 +1,22 @@
+public class Banana{
 
-class T{
-    public static int a;
-}
+    String color;
 
-public class Banana {
-
-    int name; //인스턴스변수
-    static int price; //클래스 변수(static 변수 , 공유변수)
-
-    void method(){
-      int localVal; // 지역변수
+    public Banana(){
+        this("노란");
     }
 
-    public static void main(String[] args) {
-        
+    public Banana(String color){
+        this.color = color;
+    }
+
+    public void print(){
+        System.out.println("색상이 " + color + "색 입니다." );
+    }
+
+    public static void main(String[] a){
+        Banana banana = new Banana();
+        banana.print();
     }
 
 }
