@@ -13,18 +13,38 @@ public class Sol2750 {
             array[i] = sc.nextInt();
         }
 
+        /**
+         * 선택정렬
+         */
+//        for(int i=0;i<array.length;i++){
+//            int min = Integer.MAX_VALUE;
+//            int index = 0;
+//            for(int j=i ; j<array.length ;j++){
+//                if(min > array[j]){
+//                    min = array[j];
+//                    index = j;
+//                }
+//            }
+//            int temp = array[i];
+//            array[i] = min;
+//            array[index] = temp;
+//        }
+//
+//        for(int i=0;i<N;i++){
+//            System.out.println(array[i]);
+//        }
+
+        /**
+         * 버블정렬
+         */
         for(int i=0;i<array.length;i++){
-            int min = Integer.MAX_VALUE;
-            int index = 0;
-            for(int j=i ; j<array.length ;j++){
-                if(min > array[j]){
-                    min = array[j];
-                    index = j;
+            for(int j=0;j<array.length-1-i;j++){
+                if(array[j] > array[j+1]){
+                    int temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
                 }
             }
-            int temp = array[i];
-            array[i] = min;
-            array[index] = temp;
         }
 
         for(int i=0;i<N;i++){
