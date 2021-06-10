@@ -34,15 +34,28 @@ public class Sol2750 {
 //            System.out.println(array[i]);
 //        }
 
+//        /**
+//         * 버블정렬
+//         */
+//        for(int i=0;i<array.length;i++){
+//            for(int j=0;j<array.length-1-i;j++){
+//                if(array[j] > array[j+1]){
+//                    int temp = array[j];
+//                    array[j] = array[j+1];
+//                    array[j+1] = temp;
+//                }
+//            }
+//        }
+
         /**
-         * 버블정렬
+         * 삽입정렬
          */
         for(int i=0;i<array.length;i++){
-            for(int j=0;j<array.length-1-i;j++){
-                if(array[j] > array[j+1]){
+            for(int j=0;j<i;j++){
+                if(array[j] > array[i]){
                     int temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[i];
+                    array[i] = temp;
                 }
             }
         }

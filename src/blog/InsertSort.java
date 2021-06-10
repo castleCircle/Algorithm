@@ -4,23 +4,19 @@ import java.util.Arrays;
 
 public class InsertSort {
     public static void main(String[] args) {
+
         int[] array = {1,10,5,8,7,6,4,3,2,9};
 
-        for(int i=1;i<array.length;i++){
-
-            int key = array[i];
-            int j;
-
-            for(j=i-1;j>=0;j--){
-                if(key < array[j]){
-                    array[j+1] = array[j];
-                }else{
-                    break;
+        for(int i=0;i<array.length;i++){
+            for(int j=0;j<i;j++){
+                if(array[j] > array[i]){
+                    int temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
                 }
             }
-
-            array[j+1] = key;
         }
+
 
         System.out.println(Arrays.toString(array));
 
