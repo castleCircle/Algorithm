@@ -15,31 +15,29 @@ public class QuickSort {
             return;
         }
 
-        int key = start;
         int i = start + 1;
         int j = end;
-        int temp;
 
-        while(i<=j){
-            while(i<=end && data[i] <= data[key]){
+        while( i < j){
+
+            while(data[start] > data[i]){
                 i++;
             }
-            while(j>start && data[j] >= data[key]){
+
+            while( data[j] > data[start] && j > start){
                 j--;
             }
 
-            if(i>j){
-                temp = data[key];
-                data[key] = data[j];
+            if(i > j){
+                int temp = data[start];
+                data[start] = data[j];
                 data[j] = temp;
             }else{
-                temp = data[j];
-                data[j] = data[i];
-                data[i] = temp;
+                int
             }
+
         }
 
-        quickSort(data,start,j-1); //j번째는 정렬된 데이터라고 판단
-        quickSort(data,j+1,end);  
+
     }
 }
