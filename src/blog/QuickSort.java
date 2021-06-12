@@ -18,25 +18,29 @@ public class QuickSort {
         int i = start + 1;
         int j = end;
 
-        while( i < j){
+        while( i <= j){
 
-            while(data[start] > data[i]){
+            while( i<=end && data[start] >= data[i]){
                 i++;
             }
 
-            while( data[j] > data[start] && j > start){
+            while(j > start && data[j] >= data[start]){
                 j--;
             }
 
-            if(i > j){
+            if(i >= j){
                 int temp = data[start];
                 data[start] = data[j];
                 data[j] = temp;
             }else{
-                int
+                int temp = data[i];
+                data[i] = data[j];
+                data[j] = temp;
             }
-
         }
+
+        quickSort(data,start,j-1);
+        quickSort(data,j+1,end);
 
 
     }
