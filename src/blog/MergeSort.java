@@ -12,41 +12,50 @@ public class MergeSort {
         System.out.println(Arrays.toString(array));
     }
 
-    public static void mergeSort(int[] array , int start , int end){
-        int middle = (start + end) / 2;
-
-        if(start<end) {
+    public static void mergeSort(int[] array,int start,int end){
+        if(start < end) {
+            int middle = (start + end) / 2;
             mergeSort(array, start, middle);
             mergeSort(array, middle + 1, end);
-            merge(array, start, middle, end);
+            merge(array, start, end);
         }
     }
 
-    public static void merge(int[] array , int start , int middle ,int end){
+    public static void merge(int[] array,int start,int end){
+
+        int middle = ( start + end ) / 2;
         int i = start;
-        int j = middle+1;
+        int j = middle + 1;
         int k = start;
 
         while(i<=middle && j<=end){
+
             if(array[i] <= array[j]){
-                temp[k++] = array[i++];
+                temp[k] = array[i];
+                i++;
             }else{
-                temp[k++] = array[j++];
+                temp[k] = array[j];
+                j++;
             }
+
+            k++;
+
         }
 
-        if(i>middle){
+        if(i > middle){
             for(int t = j;t<=end;t++){
-                temp[k++] = array[t];
+                temp[k] = array[t];
+                k++;
             }
         }else{
             for(int t = i;t<=middle;t++){
-                temp[k++] = array[t];
+                temp[k] = array[t];
+                k++;
             }
         }
 
-        for(int t=start;t<=end;t++){
-            array[t] = temp[t];
+        for(int q=start;q<=end;q++){
+            array[q] = temp[q];
         }
     }
 
