@@ -4,57 +4,70 @@ import java.util.Scanner;
 
 public class Sol2751 {
 
-    public static void main(String[] args) {
+    public static int[] temp;
 
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int[] array = new int[N];
+
+        temp = new int[N];
 
         for(int i=0;i<N;i++){
             array[i] = sc.nextInt();
         }
 
-        quickSort(array,0,N-1);
+        mergeSort(array,0,N-1);
 
+        StringBuilder sb = new StringBuilder();
         for(int i=0;i<N;i++){
-            System.out.println(array[i]);
+            sb.append(array[i]).append("\n");
         }
+
+        System.out.println(sb);
 
     }
 
-    public static void quickSort(int[] array,int start,int end){
-        if(start >= end){
-            return;
+    public static void mergeSort(int[] array,int start,int end){
+        if(start < end){
+            int middle = (start + end) / 2;
+            mergeSort(array,start,middle);
+            mergeSort(array,middle+1,end);
+            merge(array,start,middle,end);
         }
+    }
 
-        int i = start + 1;
-        int j = end;
+    public static void merge(int[] array,int start,int middle,int end){
 
-        while(i<=j){
-            // key 값보다 큰값 찾기
-            while(i<= end && array[i] <= array[start]){
+        int k = start;
+        int i = start;
+        int j = middle + 1;
+
+        while(i<=middle && j<=end){
+            if(array[i] <= array[j]){
+                temp[k] = array[i];
                 i++;
-            }
-
-            // key 값보다 작은값 찾기
-            while( j > start && array[j] >= array[start]){
-                j--;
-            }
-
-            if(i>=j){
-                int temp = array[j];
-                array[j] = array[start];
-                array[start] = temp;
             }else{
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                temp[k] = array[j];
+                j++;
+            }
+            k++;
+        }
+
+        if(j>end){
+            for(int t=i;t<=middle;t++){
+                temp[k] = array[t];
+                k++;
+            }
+        }else{
+            for(int t=j;t<=end;t++){
+                temp[k] = array[t];
+                k++;
             }
         }
 
-        quickSort(array,start,j-1);
-        quickSort(array,j+1,end);
-
+        for(int q=start;q<=end;q++){
+            array[q] = temp[q];
+        }
     }
-
 }
